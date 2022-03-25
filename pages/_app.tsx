@@ -12,7 +12,12 @@ const colors = {
   },
 };
 
-const theme = extendTheme({ colors });
+const fonts = {
+  body: "Tajawal, sans-serif",
+  heading: "Tajawal, sans-serif",
+};
+
+const theme = extendTheme({ colors, fonts });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

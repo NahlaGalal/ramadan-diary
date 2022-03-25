@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         objectFit="cover"
         width={"600px"}
       />
-      <Link href={"/"} passHref={true}>
+      <Link href={"/Calendar"} passHref={true}>
         <StyledLink
           mt="auto"
           mb={6}
