@@ -30,6 +30,7 @@ const Home: NextPage = () => {
           zIndex={"docked"}
           borderRadius={"md"}
           fontWeight="500"
+          color={"var(--chakra-colors-brand-white)"}
           _hover={{ bg: "transparent" }}
           _active={{ bg: "tranparent" }}
         >
