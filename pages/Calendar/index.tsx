@@ -10,15 +10,13 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { NextPage } from "next";
-import { getMonthDays, weekDays } from "./utils";
+import Link from "next/link";
+import { getMonthDays, weekDays } from "../../utils/getDays";
 
 const Calendar: NextPage = () => {
   return (
     <Box bgColor="var(--chakra-colors-brand-main)">
-      <Container
-        py={10}
-        maxW="container.xl"
-      >
+      <Container py={10} maxW="container.xl">
         <Heading
           as={"h1"}
           fontSize="52px"
@@ -62,7 +60,7 @@ const Calendar: NextPage = () => {
                       textAlign="center"
                       verticalAlign={"top"}
                     >
-                      {day}
+                      <Link href={`/${day}`}>{day}</Link>
                     </Td>
                   ))}
                 </Tr>
