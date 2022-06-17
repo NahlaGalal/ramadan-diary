@@ -10,6 +10,9 @@ const colors = {
     background: "rgba(255, 255, 255, 0.3)",
     green: "#1C5C5B",
   },
+  theme: {
+    checkbox: "#222328",
+  },
 };
 
 const fonts = {
