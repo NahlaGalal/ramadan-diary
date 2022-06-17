@@ -60,7 +60,9 @@ const Calendar: NextPage = () => {
                       textAlign="center"
                       verticalAlign={"top"}
                     >
-                      <Link href={`/${day}`}>{day}</Link>
+                      <Link href={`/${day}`}>
+                        <a>{day}</a>
+                      </Link>
                     </Td>
                   ))}
                 </Tr>

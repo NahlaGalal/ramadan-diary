@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Calendar from "../pages/Calendar";
-import { weekDays } from "../pages/Calendar/utils";
+import { weekDays } from "../utils/getDays";
 
 
 test("should render Calendar page correctly", () => {
