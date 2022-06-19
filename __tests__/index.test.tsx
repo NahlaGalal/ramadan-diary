@@ -16,5 +16,5 @@ test("Should successfully rendering home page", async () => {
     name: "دخول"
   });
 
-  expect(linkElement).toHaveAttribute("href", "/Calendar");
+  expect(linkElement).toHaveAttribute("href", "/Login");
 });
