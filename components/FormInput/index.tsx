@@ -1,8 +1,22 @@
-import { FormControl, FormLabel, Input } from "@chakra-ui/react";
-import React from "react";
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputLeftElement,
+} from "@chakra-ui/react";
+import React, { useState } from "react";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { IProps } from "./Types";
 
 const FormInput: React.FC<IProps> = ({ id, type, label, placeholder }) => {
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePasswordHandler = () => {
+    setPasswordShown(!passwordShown);
+  };
+
   return (
     <FormControl>
       <FormLabel
@@ -13,16 +27,40 @@ const FormInput: React.FC<IProps> = ({ id, type, label, placeholder }) => {
       >
         {label}
       </FormLabel>
-      <Input
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        borderRadius={20}
-        borderColor="var(--chakra-colors-brand-secondary)"
-        _focus={{
-          borderColor: "var(--chakra-colors-whiteAlpha-400)",
-        }}
-      />
+      <InputGroup>
+        <Input
+          id={id}
+          type={passwordShown ? "text" : type}
+          placeholder={placeholder}
+          borderRadius={20}
+          borderColor="var(--chakra-colors-brand-secondary)"
+          _focus={{
+            borderColor: "var(--chakra-colors-whiteAlpha-400)",
+          }}
+        />
+        {type === "password" && (
+          <InputLeftElement>
+            <Button
+              onClick={togglePasswordHandler}
+              bg={"transparent"}
+              _hover={{
+                bg: "transparent",
+                boxShadow: "none",
+              }}
+              _active={{
+                bg: "transparent",
+                boxShadow: "none",
+              }}
+              _focus={{
+                bg: "transparent",
+                boxShadow: "none",
+              }}
+            >
+              {passwordShown ? <ViewOffIcon /> : <ViewIcon />}
+            </Button>
+          </InputLeftElement>
+        )}
+      </InputGroup>
     </FormControl>
   );
 };
