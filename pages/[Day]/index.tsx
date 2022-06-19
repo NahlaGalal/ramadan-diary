@@ -42,6 +42,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/${params?.Day}`);
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+
   return {
     props: {
       day: params?.Day,
