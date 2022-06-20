@@ -5,6 +5,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -39,7 +40,7 @@ const FormInput: React.FC<IProps> = ({ id, type, label, placeholder }) => {
           }}
         />
         {type === "password" && (
-          <InputLeftElement>
+          <InputRightElement>
             <Button
               onClick={togglePasswordHandler}
               bg={"transparent"}
@@ -58,7 +59,7 @@ const FormInput: React.FC<IProps> = ({ id, type, label, placeholder }) => {
             >
               {passwordShown ? <ViewOffIcon /> : <ViewIcon />}
             </Button>
-          </InputLeftElement>
+          </InputRightElement>
         )}
       </InputGroup>
     </FormControl>

@@ -20,7 +20,7 @@ const fonts = {
   heading: "Tajawal, sans-serif",
 };
 
-const theme = extendTheme({ colors, fonts });
+const theme = extendTheme({ colors, fonts, direction: "rtl" });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
