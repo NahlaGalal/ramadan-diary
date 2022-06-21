@@ -4,14 +4,21 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  InputLeftElement,
   InputRightElement,
+  Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { IProps } from "./Types";
 
-const FormInput: React.FC<IProps> = ({ id, type, label, placeholder }) => {
+const FormInput: React.FC<IProps> = ({
+  id,
+  type,
+  label,
+  placeholder,
+  register,
+  error,
+}) => {
   const [passwordShown, setPasswordShown] = useState(false);
 
   const togglePasswordHandler = () => {
@@ -38,6 +45,7 @@ const FormInput: React.FC<IProps> = ({ id, type, label, placeholder }) => {
           _focus={{
             borderColor: "var(--chakra-colors-whiteAlpha-400)",
           }}
+          {...register}
         />
         {type === "password" && (
           <InputRightElement>
@@ -62,6 +70,12 @@ const FormInput: React.FC<IProps> = ({ id, type, label, placeholder }) => {
           </InputRightElement>
         )}
       </InputGroup>
+
+      {error && (
+        <Text role={"alert"} fontSize={12} color="red" mt={1}>
+          {error.message}
+        </Text>
+      )}
     </FormControl>
   );
 };

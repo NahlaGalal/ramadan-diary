@@ -18,4 +18,5 @@ export interface IFormUIProps {
   onSubmit: (
     e?: React.BaseSyntheticEvent<object, any, any> | undefined
   ) => Promise<void>;
+  password: string | undefined;
 }

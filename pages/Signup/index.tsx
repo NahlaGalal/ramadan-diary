@@ -9,6 +9,7 @@ const Signup = () => {
     register,
     formState: { errors },
     handleSubmit,
+    watch,
   } = useForm<IFormFields>();
 
   const onSubmitHandler = (data: IFormFields) => {
@@ -42,6 +43,7 @@ const Signup = () => {
         register={register}
         onSubmit={handleSubmit(onSubmitHandler)}
         errors={errors}
+        password={watch("password")}
       />
     </Container>
   );

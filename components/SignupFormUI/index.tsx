@@ -1,5 +1,6 @@
 import { Button, VStack } from "@chakra-ui/react";
 import React from "react";
+import { inputsValidation } from "../../utils/validations";
 import FormInput from "../FormInput";
 import { IFormUIProps } from "./Types";
 
@@ -7,6 +8,7 @@ const SignupFormUI: React.FC<IFormUIProps> = ({
   register,
   onSubmit,
   errors,
+  password
 }) => {
   return (
     <VStack as="form" onSubmit={onSubmit} spacing={"24px"}>
@@ -16,6 +18,8 @@ const SignupFormUI: React.FC<IFormUIProps> = ({
         type="text"
         label="الاسم"
         placeholder="اكتب اسمك هنا..."
+        register={register("name", inputsValidation("name"))}
+        error={errors.name}
       />
 
       {/* Email */}
@@ -24,6 +28,8 @@ const SignupFormUI: React.FC<IFormUIProps> = ({
         type="email"
         label="البريد اﻹلكتروني"
         placeholder="اكتب البريد اﻹلكتروني هنا..."
+        register={register("email", inputsValidation("email"))}
+        error={errors.email}
       />
 
       {/* Password */}
@@ -32,6 +38,8 @@ const SignupFormUI: React.FC<IFormUIProps> = ({
         type="password"
         label="كلمة السر"
         placeholder="اكتب كلمة السر هنا..."
+        register={register("password", inputsValidation("password"))}
+        error={errors.password}
       />
 
       {/* Confirm password */}
@@ -40,6 +48,11 @@ const SignupFormUI: React.FC<IFormUIProps> = ({
         type={"password"}
         label="إعادة كلمة السر"
         placeholder="اعد كتابة كلمة السر هنا..."
+        register={register(
+          "confirm_password",
+          inputsValidation("confirm_password", password)
+        )}
+        error={errors.confirm_password}
       />
 
       {/* Submit button */}
