@@ -1,10 +1,13 @@
 import { Container, Heading } from "@chakra-ui/react";
 import React from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import SignupFormUI from "../../components/SignupFormUI";
 import { IFormFields } from "../../components/SignupFormUI/Types";
 
 const Signup = () => {
+  const router = useRouter();
   const {
     register,
     formState: { errors },
@@ -12,8 +15,9 @@ const Signup = () => {
     watch,
   } = useForm<IFormFields>();
 
-  const onSubmitHandler = (data: IFormFields) => {
-    console.log(data);
+  const onSubmitHandler = async (body: IFormFields) => {
+    const data = await axios.post("/api/signup", body);
+    if (data.data.success) router.push("/");
   };
 
   return (
