@@ -2,7 +2,7 @@ import { rest } from "msw";
 import { EMAIL_REGEX } from "../utils/validations";
 
 export const signupHandlers = [
-  rest.post("http://localhost:3000/signup", (req, res, ctx) => {
+  rest.post("http://localhost:3000/api/signup", (req, res, ctx) => {
     const data: {
       name: string;
       email: string;
