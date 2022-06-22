@@ -2,7 +2,7 @@ import { rest } from "msw";
 import { EMAIL_REGEX } from "../utils/validations";
 
 export const signupHandlers = [
-  rest.post("http://localhost:3000/api/signup", (req, res, ctx) => {
+  rest.post("/api/signup", (req, res, ctx) => {
     const data: {
       name: string;
       email: string;
@@ -26,6 +26,6 @@ export const signupHandlers = [
       errors.push({ confirm_password: "كلمتا المرور غير متطابقتان" });
 
     if (errors.length) return res(ctx.status(400), ctx.json({ errors }));
-    else return res(ctx.status(200), ctx.json({ token: "abd" }));
+    else return res(ctx.status(200), ctx.json({ success: true }));
   }),
 ];
