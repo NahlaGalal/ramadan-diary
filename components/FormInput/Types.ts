@@ -5,6 +5,6 @@ export interface IProps {
   type: string;
   label: string;
   placeholder: string;
-  register: UseFormRegisterReturn<string>;
+  register?: UseFormRegisterReturn<string>;
   error: FieldError | undefined;
 }

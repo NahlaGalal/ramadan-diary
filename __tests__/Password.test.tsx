@@ -11,6 +11,7 @@ test("should show / hide password input successfull", async () => {
       label="password"
       placeholder="password"
       type="password"
+      error={undefined}
     />
   );
 
