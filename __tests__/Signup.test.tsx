@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import Signup from "../pages/Signup";
 import userEvent from "@testing-library/user-event";
 
@@ -122,4 +122,38 @@ test("should handle input validation successfully", async () => {
   let errors4 = screen.queryByRole("alert");
 
   expect(errors4).not.toBeInTheDocument();
+});
+
+test("should register successfully", async () => {
+  render(<Signup />);
+
+  // Submit btn
+  const submitBtn = screen.getByRole("button", {
+    name: "تسجيل",
+  });
+
+  // Inputs
+  const nameInput = screen.getByRole("textbox", {
+    name: "الاسم",
+  });
+  const emailInput = screen.getByRole("textbox", {
+    name: "البريد اﻹلكتروني",
+  });
+  const passwordInput = screen.getByLabelText("كلمة السر");
+  const confirm_passwordInput = screen.getByLabelText("إعادة كلمة السر");
+
+  // Clear Inputs
+  await user.clear(nameInput);
+  await user.clear(emailInput);
+  await user.clear(passwordInput);
+  await user.clear(confirm_passwordInput);
+
+  // All fields are validated
+  await waitFor(async () => {
+    await user.type(nameInput, "asdfgg");
+    await user.type(emailInput, "fewfd@dd.com");
+    await user.type(passwordInput, "123456789");
+    await user.type(confirm_passwordInput, "123456789");
+    await user.click(submitBtn);
+  });
 });
