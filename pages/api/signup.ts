@@ -15,7 +15,7 @@ export default async function signup(
   }
 
   try {
-    const data: IFormFields = JSON.parse(req.body);
+    const data: IFormFields = req.body;
     let errors = [];
 
     // Validate data
