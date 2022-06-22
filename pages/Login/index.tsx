@@ -16,7 +16,7 @@ const Login = () => {
 
   const onSubmitHandler = async (body: IFormFields) => {
     const data = await axios.post("/api/login", body);
-    if (data.data.success) router.push("/");
+    if (data.data.success) router.push("/Calendar");
   };
 
   return (
