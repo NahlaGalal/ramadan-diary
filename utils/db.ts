@@ -20,9 +20,9 @@ const executeQuery = async ({
   try {
     const results = await db.query(query, values);
     await db.end();
-    return results;
-  } catch (error) {
-    return { error };
+    return { results, success: true };
+  } catch (err: any) {
+    return { err: err.message, success: false };
   }
 };
 
