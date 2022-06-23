@@ -1,8 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import getConfig from "next/config";
 import { IFormFields } from "../../components/LoginFormUI/Types";
 import executeQuery from "../../utils/db";
 import { EMAIL_REGEX } from "../../utils/validations";
+
+const { serverRuntimeConfig } = getConfig();
 
 export default async function signup(
   req: NextApiRequest,
@@ -39,7 +43,6 @@ export default async function signup(
       password: string;
       email: string;
       name: string;
-      token: string;
     } = (response.results as any)[0];
 
     const passwordsIdentical = await bcrypt.compare(
@@ -49,13 +52,23 @@ export default async function signup(
 
     // Handle response
     if (response.success) {
-      if (passwordsIdentical) return res.status(200).json({ success: true });
+      if (passwordsIdentical) {
+        // Generate token
+        const token = jwt.sign(
+          { id: user.id, name: user.name, email: user.email },
+          serverRuntimeConfig.secret,
+          {
+            expiresIn: "7d",
+          }
+        );
+
+        return res.status(200).json({ success: true, token });
+      }
+      // Wrong password
       else
-        return res
-          .status(400)
-          .json({
-            errors: [{ password: "البريد اﻹلكتروني و/أو كلمة السر غير صحيحان" }],
-          });
+        return res.status(400).json({
+          errors: [{ password: "البريد اﻹلكتروني و/أو كلمة السر غير صحيحان" }],
+        });
     } else {
       return res.status(400).json({ err: response.err });
     }
