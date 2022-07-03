@@ -10,7 +10,7 @@ const SignupFormUI: React.FC<IFormUIProps> = ({
   errors,
 }) => {
   return (
-    <VStack as="form" onSubmit={onSubmit} spacing={"24px"}>
+    <VStack as="form" onSubmit={onSubmit} spacing={"24px"} color="#fff">
       {/* Email */}
       <FormInput
         id="email"

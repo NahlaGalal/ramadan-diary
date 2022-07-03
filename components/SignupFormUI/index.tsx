@@ -11,7 +11,7 @@ const SignupFormUI: React.FC<IFormUIProps> = ({
   password
 }) => {
   return (
-    <VStack as="form" onSubmit={onSubmit} spacing={"24px"}>
+    <VStack as="form" onSubmit={onSubmit} spacing={"24px"} color="#fff">
       {/* Name */}
       <FormInput
         id="name"
