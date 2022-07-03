@@ -38,6 +38,12 @@ export default async function signup(
       values: [data.email],
     });
 
+    if(!(response.results as any).length) {
+      return res.status(400).json({
+        errors: [{ password: "البريد اﻹلكتروني و/أو كلمة السر غير صحيحان" }],
+      });
+    }
+
     const user: {
       id: number;
       password: string;
