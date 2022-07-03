@@ -38,7 +38,7 @@ export default async function signup(
       values: [data.email],
     });
 
-    if(!(response.results as any).length) {
+    if (!(response.results as any).length) {
       return res.status(400).json({
         errors: [{ password: "البريد اﻹلكتروني و/أو كلمة السر غير صحيحان" }],
       });
@@ -59,14 +59,16 @@ export default async function signup(
     // Handle response
     if (response.success) {
       if (passwordsIdentical) {
+        console.log("fef")
         // Generate token
         const token = jwt.sign(
           { id: user.id, name: user.name, email: user.email },
-          serverRuntimeConfig.secret,
+          `${serverRuntimeConfig.secret}`,
           {
             expiresIn: "7d",
           }
         );
+
 
         return res.status(200).json({ success: true, token });
       }
