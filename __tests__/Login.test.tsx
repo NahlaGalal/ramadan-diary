@@ -108,9 +108,11 @@ test("should login successfully", async () => {
   await user.clear(passwordInput);
 
   // All fields are validated
+  await user.type(emailInput, "fewfd@dd.com");
+  await user.type(passwordInput, "123456789");
+  
   await waitFor(async () => {
-    await user.type(emailInput, "fewfd@dd.com");
-    await user.type(passwordInput, "123456789");
     await user.click(submitBtn);
+    expect(localStorage.getItem("ramadan-user")).not.toBeNull();
   });
 });
