@@ -110,9 +110,44 @@ test("should login successfully", async () => {
   // All fields are validated
   await user.type(emailInput, "fewfd@dd.com");
   await user.type(passwordInput, "123456789");
-  
+
   await waitFor(async () => {
     await user.click(submitBtn);
     expect(localStorage.getItem("ramadan-user")).not.toBeNull();
   });
+});
+
+test("Should return error if data is wrong", async () => {
+  render(<Login />);
+
+  // Clear localStorage
+  localStorage.clear();
+
+  // Submit btn
+  const submitBtn = screen.getByRole("button", {
+    name: "دخول",
+  });
+
+  // Inputs
+  const emailInput = screen.getByRole("textbox", {
+    name: "البريد اﻹلكتروني",
+  });
+  const passwordInput = screen.getByLabelText("كلمة السر");
+
+  // Clear Inputs
+  await user.clear(emailInput);
+  await user.clear(passwordInput);
+
+  // All fields are validated
+  await user.type(emailInput, "admin@admin.com");
+  await user.type(passwordInput, "123456789");
+
+  await waitFor(async () => {
+    await user.click(submitBtn);
+  });
+
+  const errors = await screen.findByRole("alert");
+  expect(errors).toHaveTextContent(
+    "البريد اﻹلكتروني و/أو كلمة السر غير صحيحان"
+  );
 });

@@ -46,6 +46,10 @@ export const signupHandlers = [
     if (data.password.length < 8)
       errors.push({ password: "يجب أن لا تقل كلمة المرور عن 8 أحرف" });
 
+      // Add specific data as wrong
+      if (data.email === "admin@admin.com" || data.password === "admin")
+      errors.push({ password: "البريد اﻹلكتروني و/أو كلمة السر غير صحيحان" });
+      
     if (errors.length) return res(ctx.status(400), ctx.json({ errors }));
     else return res(ctx.status(200), ctx.json({ success: true }));
   }),
