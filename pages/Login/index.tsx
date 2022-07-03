@@ -1,13 +1,13 @@
 import { Container, Heading } from "@chakra-ui/react";
-import React, { useState } from "react";
-// import { useRouter } from "next/router";
-import axios, { AxiosError } from "axios";
+import React from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import SignupFormUI from "../../components/LoginFormUI";
 import { IFormFields } from "../../components/LoginFormUI/Types";
 
 const Login = () => {
-  // const router = useRouter();
+  const router = useRouter();
   const {
     register,
     formState: { errors },
@@ -20,7 +20,7 @@ const Login = () => {
       const data = await axios.post("/api/login", body);
       if (data.data.success) {
         window.localStorage.setItem("ramadan-user", data.data.token);
-        // router.push("/Calendar");
+        router.push("/Calendar");
       }
     } catch (err: any) {
       const errors = err.response.data.errors;
