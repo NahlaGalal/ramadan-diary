@@ -53,43 +53,51 @@ const Calendar: NextPage = () => {
             </Thead>
             <Tbody>
               {getMonthDays().map((week) => (
-                <Tr fontSize={"xl"} key={`w-${week[0]}`}>
-                  {week.map((day) =>
-                    day > 0 ? (
+                <Tr fontSize={"xl"} key={`w-${week[0].id}`}>
+                  {week.map(({ id, rate, today }) =>
+                    id > 0 ? (
                       <Td
                         isNumeric={true}
-                        key={day}
-                        bg="var(--chakra-colors-brand-background)"
+                        key={id}
+                        bg={`var(--chakra-colors-brand-${
+                          today ? "secondary" : "background"
+                        })`}
                         height={"32"}
                         textAlign="center"
                         verticalAlign={"top"}
+                        color={`var(--chakra-colors-brand-${
+                          today ? "main" : "secondary"
+                        })`}
+                        fontWeight={500}
                       >
-                        <Link href={`/${day}`}>
-                          <a>{day}</a>
+                        <Link href={`/${id}`}>
+                          <a>{id}</a>
                         </Link>
-                        <CircularProgress
-                          value={30}
-                          size="44px"
-                          thickness={"6px"}
-                          color="var(--chakra-colors-brand-secondary)"
-                          display={"block"}
-                          width="max-content"
-                          mx="auto"
-                          mt={4}
-                        >
-                          <CircularProgressLabel>
-                            <Text
-                              fontSize={"md"}
-                              color="var(--chakra-colors-brand-white)"
-                              marginTop={1}
-                            >
-                              30%
-                            </Text>
-                          </CircularProgressLabel>
-                        </CircularProgress>
+                        {rate ? (
+                          <CircularProgress
+                            value={rate}
+                            size="44px"
+                            thickness={"6px"}
+                            color="var(--chakra-colors-brand-secondary)"
+                            display={"block"}
+                            width="max-content"
+                            mx="auto"
+                            mt={4}
+                          >
+                            <CircularProgressLabel>
+                              <Text
+                                fontSize={"md"}
+                                color="var(--chakra-colors-brand-white)"
+                                marginTop={1}
+                              >
+                                {rate}%
+                              </Text>
+                            </CircularProgressLabel>
+                          </CircularProgress>
+                        ) : undefined}
                       </Td>
                     ) : (
-                      <Td key={day}></Td>
+                      <Td key={id}></Td>
                     )
                   )}
                 </Tr>
