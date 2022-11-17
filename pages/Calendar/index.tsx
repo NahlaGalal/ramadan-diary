@@ -1,10 +1,13 @@
 import {
   Box,
+  CircularProgress,
+  CircularProgressLabel,
   Container,
   Heading,
   Table,
   Tbody,
   Td,
+  Text,
   Th,
   Thead,
   Tr,
@@ -64,6 +67,26 @@ const Calendar: NextPage = () => {
                         <Link href={`/${day}`}>
                           <a>{day}</a>
                         </Link>
+                        <CircularProgress
+                          value={30}
+                          size="44px"
+                          thickness={"6px"}
+                          color="var(--chakra-colors-brand-secondary)"
+                          display={"block"}
+                          width="max-content"
+                          mx="auto"
+                          mt={4}
+                        >
+                          <CircularProgressLabel>
+                            <Text
+                              fontSize={"md"}
+                              color="var(--chakra-colors-brand-white)"
+                              marginTop={1}
+                            >
+                              30%
+                            </Text>
+                          </CircularProgressLabel>
+                        </CircularProgress>
                       </Td>
                     ) : (
                       <Td key={day}></Td>
