@@ -15,7 +15,7 @@ import { getMonthDays, weekDays } from "../../utils/getDays";
 
 const Calendar: NextPage = () => {
   return (
-    <Box bgColor="var(--chakra-colors-brand-main)">
+    <Box bgColor="var(--chakra-colors-brand-main)" dir={"rtl"}>
       <Container py={10} maxW="container.xl">
         <Heading
           as={"h1"}
@@ -25,7 +25,7 @@ const Calendar: NextPage = () => {
           mb={10}
           textAlign="center"
         >
-          Ramadan Daily
+          إمساكية رمضان
         </Heading>
         <Box overflowX={"auto"}>
           <Table
@@ -51,20 +51,24 @@ const Calendar: NextPage = () => {
             <Tbody>
               {getMonthDays().map((week) => (
                 <Tr fontSize={"xl"} key={`w-${week[0]}`}>
-                  {week.map((day) => (
-                    <Td
-                      isNumeric={true}
-                      key={day}
-                      bg="var(--chakra-colors-brand-background)"
-                      height={"24"}
-                      textAlign="center"
-                      verticalAlign={"top"}
-                    >
-                      <Link href={`/${day}`}>
-                        <a>{day}</a>
-                      </Link>
-                    </Td>
-                  ))}
+                  {week.map((day) =>
+                    day > 0 ? (
+                      <Td
+                        isNumeric={true}
+                        key={day}
+                        bg="var(--chakra-colors-brand-background)"
+                        height={"32"}
+                        textAlign="center"
+                        verticalAlign={"top"}
+                      >
+                        <Link href={`/${day}`}>
+                          <a>{day}</a>
+                        </Link>
+                      </Td>
+                    ) : (
+                      <Td key={day}></Td>
+                    )
+                  )}
                 </Tr>
               ))}
             </Tbody>
