@@ -1,9 +1,8 @@
-import { Box, Container, Heading, HStack, VStack } from "@chakra-ui/react";
+import { Container, Heading, HStack, VStack } from "@chakra-ui/react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import React from "react";
 import Salah from "../../components/Salah";
 import Worships from "../../components/Worships";
-import { getSubOfDay } from "../../utils/getSubDay";
 
 const Day: NextPage<{ day: string }> = ({ day }) => {
   return (
@@ -15,9 +14,9 @@ const Day: NextPage<{ day: string }> = ({ day }) => {
         fontWeight="700"
         mb={10}
         textAlign="center"
+        dir="rtl"
       >
-        {day}
-        {getSubOfDay(+day)} Ramadan
+        {day} رمضان
       </Heading>
 
       <HStack dir="rtl">
