@@ -2,6 +2,7 @@ import { Box, Container, Heading, HStack, VStack } from "@chakra-ui/react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import React from "react";
 import Salah from "../../components/Salah";
+import Worships from "../../components/Worships";
 import { getSubOfDay } from "../../utils/getSubDay";
 
 const Day: NextPage<{ day: string }> = ({ day }) => {
@@ -20,8 +21,9 @@ const Day: NextPage<{ day: string }> = ({ day }) => {
       </Heading>
 
       <HStack dir="rtl">
-        <VStack>
+        <VStack spacing={6}>
           <Salah />
+          <Worships />
         </VStack>
       </HStack>
     </Container>
