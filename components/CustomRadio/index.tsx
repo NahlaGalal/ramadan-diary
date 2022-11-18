@@ -30,7 +30,7 @@ const CustomRadio: React.FC<Props> = ({ name, values }) => {
               background: "brand.secondary !important",
             }}
           >
-            {value}
+            {val}
           </Radio>
         ))}
       </SimpleGrid>
