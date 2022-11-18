@@ -14,19 +14,21 @@ import CustomCheckbox from "../CustomChecbox";
 
 const Salah: NextPage = () => {
   return (
-    <Box
-      bg={"brand.background"}
-      padding={6}
-      borderRadius={20}
-    >
-      <Heading fontSize={30} textAlign="center" color="brand.white">
+    <Box bg={"brand.background"} py={2} borderRadius={20}>
+      <Heading
+        fontSize={30}
+        textAlign="center"
+        color="brand.white"
+        mx={6}
+        mt={4}
+      >
         الصلاة
       </Heading>
 
       <Table
         sx={{
           borderCollapse: "separate",
-          borderSpacing: "32px 16px",
+          borderSpacing: "24px 16px",
         }}
         variant="unstyled"
       >
@@ -107,18 +109,10 @@ const Salah: NextPage = () => {
             </Td>
             <Td padding={0}></Td>
             <Td padding={0} textAlign="center">
-              <CustomCheckbox
-                name="maghrib"
-              
-                value="maghrib-on"
-              />
+              <CustomCheckbox name="maghrib" value="maghrib-on" />
             </Td>
             <Td padding={0} textAlign="center">
-              <CustomCheckbox
-                name="maghrib"
-              
-                value="maghrib-after"
-              />
+              <CustomCheckbox name="maghrib" value="maghrib-after" />
             </Td>
           </Tr>
           <Tr>
