@@ -18,12 +18,12 @@ import { getMonthDays, weekDays } from "../../utils/getDays";
 
 const Calendar: NextPage = () => {
   return (
-    <Box bgColor="var(--chakra-colors-brand-main)" dir={"rtl"}>
+    <Box bgColor="brand.main" dir={"rtl"}>
       <Container py={10} maxW="container.xl">
         <Heading
           as={"h1"}
           fontSize="52px"
-          color={"var(--chakra-colors-brand-white)"}
+          color={"brand.white"}
           fontWeight="700"
           mb={10}
           textAlign="center"
@@ -32,7 +32,7 @@ const Calendar: NextPage = () => {
         </Heading>
         <Box overflowX={"auto"}>
           <Table
-            color={"var(--chakra-colors-brand-secondary)"}
+            color={"brand.secondary"}
             cellSpacing={24}
             variant={"unstyled"}
             sx={{ borderCollapse: "separate", tableLayout: "fixed" }}
@@ -59,15 +59,15 @@ const Calendar: NextPage = () => {
                       <Td
                         isNumeric={true}
                         key={id}
-                        bg={`var(--chakra-colors-brand-${
+                        bg={`brand.${
                           today ? "secondary" : "background"
-                        })`}
+                        }`}
                         height={"32"}
                         textAlign="center"
                         verticalAlign={"top"}
-                        color={`var(--chakra-colors-brand-${
+                        color={`brand.${
                           today ? "main" : "secondary"
-                        })`}
+                        }`}
                         fontWeight={500}
                       >
                         <Link href={`/${id}`}>
@@ -78,7 +78,7 @@ const Calendar: NextPage = () => {
                             value={rate}
                             size="44px"
                             thickness={"6px"}
-                            color="var(--chakra-colors-brand-secondary)"
+                            color="brand.secondary"
                             display={"block"}
                             width="max-content"
                             mx="auto"
@@ -87,7 +87,7 @@ const Calendar: NextPage = () => {
                             <CircularProgressLabel>
                               <Text
                                 fontSize={"md"}
-                                color="var(--chakra-colors-brand-white)"
+                                color="brand.white"
                                 marginTop={1}
                               >
                                 {rate}%

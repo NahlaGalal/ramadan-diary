@@ -30,7 +30,7 @@ const FormInput: React.FC<IProps> = ({
       <FormLabel
         htmlFor={id}
         fontSize="lg"
-        color={"var(--chakra-colors-brand-secondary)"}
+        color={"brand.secondary"}
         fontWeight={500}
       >
         {label}
@@ -41,9 +41,9 @@ const FormInput: React.FC<IProps> = ({
           type={passwordShown ? "text" : type}
           placeholder={placeholder}
           borderRadius={20}
-          borderColor="var(--chakra-colors-brand-secondary)"
+          borderColor="brand.secondary"
           _focus={{
-            borderColor: "var(--chakra-colors-whiteAlpha-400)",
+            borderColor: "whiteAlpha.400",
           }}
           {...register}
         />

@@ -7,7 +7,7 @@ import Link from "next/link";
 const Home: NextPage = () => {
   return (
     <Flex
-      bgColor="var(--chakra-colors-brand-main)"
+      bgColor="brand.main"
       height={"100vh"}
       flexDirection={"column"}
       alignItems="center"
@@ -22,15 +22,16 @@ const Home: NextPage = () => {
         <StyledLink
           mt="auto"
           mb={6}
-          bg="var(--chakra-colors-brand-green)"
-          border={"1px solid var(--chakra-colors-brand-green)"}
+          bg="brand.green"
+          border={"1px solid"}
+          borderColor="brand.green"
           py={3}
           px={10}
           fontSize={"lg"}
           zIndex={"docked"}
           borderRadius={"md"}
           fontWeight="500"
-          color={"var(--chakra-colors-brand-white)"}
+          color={"brand.white"}
           _hover={{ bg: "transparent" }}
           _active={{ bg: "tranparent" }}
         >

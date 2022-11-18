@@ -10,7 +10,7 @@ const Day: NextPage<{ day: string }> = ({ day }) => {
       <Heading
         as={"h1"}
         fontSize="52px"
-        color={"var(--chakra-colors-brand-white)"}
+        color={"brand.white"}
         fontWeight="700"
         mb={10}
         textAlign="center"

@@ -25,7 +25,7 @@ const theme = extendTheme({ colors, fonts, direction: "rtl" });
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Box bgColor="var(--chakra-colors-brand-main)" sx={{ minH: "100vh" }}>
+      <Box bgColor="brand.main" sx={{ minH: "100vh" }}>
         <Component {...pageProps} />
       </Box>
     </ChakraProvider>

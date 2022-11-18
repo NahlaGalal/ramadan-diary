@@ -15,11 +15,11 @@ import CustomCheckbox from "../CustomChecbox";
 const Salah: NextPage = () => {
   return (
     <Box
-      bg={"var(--chakra-colors-brand-background)"}
+      bg={"brand.background"}
       padding={6}
       borderRadius={20}
     >
-      <Heading fontSize={30} textAlign="center">
+      <Heading fontSize={30} textAlign="center" color="brand.white">
         الصلاة
       </Heading>
 
@@ -34,13 +34,13 @@ const Salah: NextPage = () => {
           <Tr>
             <Th
               padding={0}
-              color={"var(--chakra-colors-brand-secondary)"}
+              color={"brand.secondary"}
               fontWeight="normal"
               fontSize={"md"}
             ></Th>
             <Th
               padding={0}
-              color={"var(--chakra-colors-brand-secondary)"}
+              color={"brand.secondary"}
               fontWeight="normal"
               fontSize={"md"}
             >
@@ -48,7 +48,7 @@ const Salah: NextPage = () => {
             </Th>
             <Th
               padding={0}
-              color={"var(--chakra-colors-brand-secondary)"}
+              color={"brand.secondary"}
               fontWeight="normal"
               fontSize={"md"}
             >
@@ -56,7 +56,7 @@ const Salah: NextPage = () => {
             </Th>
             <Th
               padding={0}
-              color={"var(--chakra-colors-brand-secondary)"}
+              color={"brand.secondary"}
               fontWeight="normal"
               fontSize={"md"}
             >
@@ -66,7 +66,7 @@ const Salah: NextPage = () => {
         </Thead>
         <Tbody>
           <Tr>
-            <Td padding={0} color={"var(--chakra-colors-brand-secondary)"}>
+            <Td padding={0} color={"brand.secondary"}>
               الفجر
             </Td>
             <Td padding={0} textAlign="center">
@@ -78,7 +78,7 @@ const Salah: NextPage = () => {
             <Td padding={0}></Td>
           </Tr>
           <Tr>
-            <Td padding={0} color={"var(--chakra-colors-brand-secondary)"}>
+            <Td padding={0} color={"brand.secondary"}>
               الظهر
             </Td>
             <Td padding={0} textAlign="center">
@@ -92,7 +92,7 @@ const Salah: NextPage = () => {
             </Td>
           </Tr>
           <Tr>
-            <Td padding={0} color={"var(--chakra-colors-brand-secondary)"}>
+            <Td padding={0} color={"brand.secondary"}>
               العصر
             </Td>
             <Td padding={0}></Td>
@@ -102,7 +102,7 @@ const Salah: NextPage = () => {
             <Td padding={0}></Td>
           </Tr>
           <Tr>
-            <Td padding={0} color={"var(--chakra-colors-brand-secondary)"}>
+            <Td padding={0} color={"brand.secondary"}>
               المغرب
             </Td>
             <Td padding={0}></Td>
@@ -122,7 +122,7 @@ const Salah: NextPage = () => {
             </Td>
           </Tr>
           <Tr>
-            <Td padding={0} color={"var(--chakra-colors-brand-secondary)"}>
+            <Td padding={0} color={"brand.secondary"}>
               العشاء
             </Td>
             <Td padding={0}></Td>

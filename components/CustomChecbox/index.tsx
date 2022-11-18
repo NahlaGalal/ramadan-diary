@@ -11,10 +11,10 @@ const CustomCheckbox: React.FC<Props> = ({ name, value }) => {
   return (
     <Checkbox
       size={"lg"}
-      bg="var(--chakra-colors-brand-main)"
-      borderColor={"var(--chakra-colors-brand-main)"}
+      bg="brand.main"
+      borderColor={"brand.main"}
       borderRadius={2}
-      colorScheme={"var(--chakra-colors-theme-checkbox)"}
+      colorScheme={"theme.checkbox"}
       icon={<CustomIcon />}
       name={name}
       aria-label={name}
