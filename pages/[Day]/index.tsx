@@ -75,15 +75,48 @@ const Day: NextPage<{ day: string }> = ({ day }) => {
               display="block"
               border="1px solid"
               borderColor="brand.secondary"
+              height={"auto"}
               _hover={{
                 bg: "brand.main",
-                color: "brand.white"
+                color: "brand.white",
               }}
             >
               إرسال
             </Button>
           </DayBoxContainer>
         </VStack>
+      </HStack>
+
+      {/* Btns */}
+      <HStack justifyContent={"center"} gap={10} dir="rtl" mt={6}>
+        <Button
+          px={10}
+          py={3}
+          color="brand.white"
+          bg="brand.green"
+          border="1px solid"
+          borderColor="brand.green"
+          height={"auto"}
+          _hover={{
+            bg: "brand.main",
+          }}
+        >
+          تتبع عاداتي
+        </Button>
+        <Button
+          px={10}
+          py={3}
+          color="brand.white"
+          bg="brand.green"
+          border="1px solid"
+          borderColor="brand.green"
+          height={"auto"}
+          _hover={{
+            bg: "brand.main",
+          }}
+        >
+          القرآن
+        </Button>
       </HStack>
     </Container>
   );
