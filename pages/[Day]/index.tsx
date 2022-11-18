@@ -1,6 +1,16 @@
-import { Container, Heading, HStack, VStack } from "@chakra-ui/react";
+import {
+  Button,
+  Container,
+  Heading,
+  HStack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import React from "react";
+import CustomCheckbox from "../../components/CustomChecbox";
+import CustomRadio from "../../components/CustomRadio";
+import DayBoxContainer from "../../components/DayBoxContainer";
 import Salah from "../../components/Salah";
 import Worships from "../../components/Worships";
 
@@ -19,10 +29,60 @@ const Day: NextPage<{ day: string }> = ({ day }) => {
         {day} رمضان
       </Heading>
 
-      <HStack dir="rtl">
+      <HStack dir="rtl" gap={10}>
         <VStack spacing={6}>
+          {/* Salah card */}
           <Salah />
+
+          {/* Worships card */}
           <Worships />
+        </VStack>
+
+        <VStack spacing={12} flex={1}>
+          {/* Hadith */}
+          <DayBoxContainer heading="حديث اليوم">
+            <Text mb={2}>قال رسول الله ﷺ</Text>
+            <Text>
+              إذا جاءَ رَمَضانُ فُتِّحَتْ أبْوابُ الجَنَّةِ، وغُلِّقَتْ أبْوابُ
+              النَّارِ، وصُفِّدَتِ الشَّياطِينُ
+            </Text>
+          </DayBoxContainer>
+
+          {/* Pray of day*/}
+          <DayBoxContainer heading="دعاء اليوم">
+            <Text>رب اجعلني مقيم الصلاة ومن ذريتي ربنا وتقبل دعاء</Text>
+          </DayBoxContainer>
+
+          {/* Goal of day */}
+          <DayBoxContainer heading="هدف اليوم">
+            <Text>إفطار صائم ولو بتمرة</Text>
+          </DayBoxContainer>
+
+          {/* Question of day */}
+          <DayBoxContainer heading="سؤال اليوم">
+            <Text mb={1}>في أي عام هجري فرض الصيام؟</Text>
+            <CustomRadio
+              name="two"
+              values={["2 هجريًا", "3 هجريًا", "4 هجريًا", "5 هجريًا"]}
+            />
+            <Button
+              px={10}
+              py={3}
+              color="brand.main"
+              bg="brand.secondary"
+              mx="auto"
+              mt={4}
+              display="block"
+              border="1px solid"
+              borderColor="brand.secondary"
+              _hover={{
+                bg: "brand.main",
+                color: "brand.white"
+              }}
+            >
+              إرسال
+            </Button>
+          </DayBoxContainer>
         </VStack>
       </HStack>
     </Container>
