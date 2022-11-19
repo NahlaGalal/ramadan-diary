@@ -11,25 +11,16 @@ import React from "react";
 import CustomCheckbox from "../../components/CustomChecbox";
 import CustomRadio from "../../components/CustomRadio";
 import DayBoxContainer from "../../components/DayBoxContainer";
+import Navbar from "../../components/Navbar";
 import Salah from "../../components/Salah";
 import Worships from "../../components/Worships";
 
 const Day: NextPage<{ day: string }> = ({ day }) => {
   return (
-    <Container py={10} maxW="container.xl">
-      <Heading
-        as={"h1"}
-        fontSize="52px"
-        color={"brand.white"}
-        fontWeight="700"
-        mb={10}
-        textAlign="center"
-        dir="rtl"
-      >
-        {day} رمضان
-      </Heading>
-
-      <HStack dir="rtl" gap={10}>
+    <Container py={10} maxW="container.xl" dir="rtl">
+      <Navbar title={`${day} رمضان`} />
+      
+      <HStack gap={10}>
         <VStack spacing={6}>
           {/* Salah card */}
           <Salah />
