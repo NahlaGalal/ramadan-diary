@@ -14,22 +14,15 @@ import {
 } from "@chakra-ui/react";
 import { NextPage } from "next";
 import Link from "next/link";
+import Navbar from "../../components/Navbar";
 import { getMonthDays, weekDays } from "../../utils/getDays";
 
 const Calendar: NextPage = () => {
   return (
     <Box bgColor="brand.main" dir={"rtl"}>
       <Container py={10} maxW="container.xl">
-        <Heading
-          as={"h1"}
-          fontSize="52px"
-          color={"brand.white"}
-          fontWeight="700"
-          mb={10}
-          textAlign="center"
-        >
-          إمساكية رمضان
-        </Heading>
+        <Navbar title="إمساكية رمضان" isBack={false} />
+
         <Box overflowX={"auto"}>
           <Table
             color={"brand.secondary"}
@@ -59,15 +52,11 @@ const Calendar: NextPage = () => {
                       <Td
                         isNumeric={true}
                         key={id}
-                        bg={`brand.${
-                          today ? "secondary" : "background"
-                        }`}
+                        bg={`brand.${today ? "secondary" : "background"}`}
                         height={"32"}
                         textAlign="center"
                         verticalAlign={"top"}
-                        color={`brand.${
-                          today ? "main" : "secondary"
-                        }`}
+                        color={`brand.${today ? "main" : "secondary"}`}
                         fontWeight={500}
                       >
                         <Link href={`/${id}`}>

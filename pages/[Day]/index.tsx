@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import React from "react";
-import CustomCheckbox from "../../components/CustomChecbox";
 import CustomRadio from "../../components/CustomRadio";
 import DayBoxContainer from "../../components/DayBoxContainer";
 import Navbar from "../../components/Navbar";
@@ -18,7 +17,7 @@ import Worships from "../../components/Worships";
 const Day: NextPage<{ day: string }> = ({ day }) => {
   return (
     <Container py={10} maxW="container.xl" dir="rtl">
-      <Navbar title={`${day} رمضان`} />
+      <Navbar title={`${day} رمضان`} isBack />
       
       <HStack gap={10}>
         <VStack spacing={6}>

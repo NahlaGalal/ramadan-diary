@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Heading,
   HStack,
@@ -15,7 +16,7 @@ import { GiPrayerBeads, GiTargeted } from "react-icons/gi";
 import { IProps } from "./Type";
 import { SettingsIcon } from "@chakra-ui/icons";
 
-const Navbar: NextPage<IProps> = ({ title }) => {
+const Navbar: NextPage<IProps> = ({ title, isBack }) => {
   return (
     <HStack
       as="nav"
@@ -50,19 +51,21 @@ const Navbar: NextPage<IProps> = ({ title }) => {
         {title}
       </Heading>
 
-      <NextLink href="/Calendar" passHref>
-        <Button
-          rightIcon={<TbArrowBackUp size={24} />}
-          variant="link"
-          color={"brand.white"}
-          mr={0}
-          _hover={{
-            textDecoration: "none"
-          }}
-        >
-          رجوع
-        </Button>
-      </NextLink>
+      {isBack ? (
+        <NextLink href="/Calendar" passHref>
+          <Button
+            rightIcon={<TbArrowBackUp size={24} />}
+            variant="link"
+            color={"brand.white"}
+            mr={0}
+            _hover={{
+              textDecoration: "none"
+            }}
+          >
+            رجوع
+          </Button>
+        </NextLink>
+      ): <Box as="span" w={16}/>}
     </HStack>
   );
 };
