@@ -3,7 +3,8 @@ import {
   CircularProgress,
   CircularProgressLabel,
   Container,
-  Heading,
+  LinkBox,
+  LinkOverlay,
   Table,
   Tbody,
   Td,
@@ -49,18 +50,19 @@ const Calendar: NextPage = () => {
                 <Tr fontSize={"xl"} key={`w-${week[0].id}`}>
                   {week.map(({ id, rate, today }) =>
                     id > 0 ? (
-                      <Td
-                        isNumeric={true}
+                      <LinkBox
+                        as="td"
                         key={id}
                         bg={`brand.${today ? "secondary" : "background"}`}
                         height={"32"}
                         textAlign="center"
                         verticalAlign={"top"}
                         color={`brand.${today ? "main" : "secondary"}`}
-                        fontWeight={500}
+                        fontWeight={"semibold"}
+                        cursor="pointer"
                       >
                         <Link href={`/${id}`}>
-                          <a>{id}</a>
+                          <LinkOverlay>{id}</LinkOverlay>
                         </Link>
                         {rate ? (
                           <CircularProgress
@@ -78,13 +80,14 @@ const Calendar: NextPage = () => {
                                 fontSize={"md"}
                                 color="brand.white"
                                 marginTop={1}
+                                fontWeight="normal"
                               >
                                 {rate}%
                               </Text>
                             </CircularProgressLabel>
                           </CircularProgress>
                         ) : undefined}
-                      </Td>
+                      </LinkBox>
                     ) : (
                       <Td key={id}></Td>
                     )
