@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Box, ChakraProvider, extendTheme } from "@chakra-ui/react";
+import Head from "next/head";
 
 const colors = {
   brand: {
@@ -25,6 +26,9 @@ const theme = extendTheme({ colors, fonts, direction: "rtl" });
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
+      <Head>
+        <title>رمضان كريم</title>
+      </Head>
       <Box bgColor="brand.main" sx={{ minH: "100vh" }}>
         <Component {...pageProps} />
       </Box>
