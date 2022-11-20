@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>رمضان كريم</title>
       </Head>
-      <Box bgColor="brand.main" sx={{ minH: "100vh" }}>
+      <Box bgColor="brand.main" sx={{ minH: "100vh" }} color="brand.white">
         <Component {...pageProps} />
       </Box>
     </ChakraProvider>

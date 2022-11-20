@@ -1,12 +1,13 @@
 import {
   Button,
   Container,
-  Heading,
   HStack,
+  Link,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import NextLink from "next/link";
 import React from "react";
 import CustomRadio from "../../components/CustomRadio";
 import DayBoxContainer from "../../components/DayBoxContainer";
@@ -79,7 +80,24 @@ const Day: NextPage<{ day: string }> = ({ day }) => {
 
       {/* Btns */}
       <HStack justifyContent={"center"} gap={10} dir="rtl" mt={6}>
-        <Button
+        <NextLink href={"/Habit-tracker"} passHref>
+          <Link
+            px={10}
+            py={3}
+            color="brand.white"
+            bg="brand.green"
+            border="1px solid"
+            borderColor="brand.green"
+            height={"auto"}
+            borderRadius="md"
+            _hover={{
+              bg: "brand.main",
+            }}
+          >
+            تتبع عاداتي
+          </Link>
+        </NextLink>
+        <Link
           px={10}
           py={3}
           color="brand.white"
@@ -87,26 +105,13 @@ const Day: NextPage<{ day: string }> = ({ day }) => {
           border="1px solid"
           borderColor="brand.green"
           height={"auto"}
-          _hover={{
-            bg: "brand.main",
-          }}
-        >
-          تتبع عاداتي
-        </Button>
-        <Button
-          px={10}
-          py={3}
-          color="brand.white"
-          bg="brand.green"
-          border="1px solid"
-          borderColor="brand.green"
-          height={"auto"}
+          borderRadius="md"
           _hover={{
             bg: "brand.main",
           }}
         >
           القرآن
-        </Button>
+        </Link>
       </HStack>
     </Container>
   );
