@@ -4,6 +4,7 @@ import {
   Heading,
   HStack,
   Icon,
+  Link,
   List,
   ListItem,
 } from "@chakra-ui/react";
@@ -16,7 +17,7 @@ import { GiPrayerBeads, GiTargeted } from "react-icons/gi";
 import { IProps } from "./Type";
 import { SettingsIcon } from "@chakra-ui/icons";
 
-const Navbar: NextPage<IProps> = ({ title, isBack }) => {
+const Navbar: NextPage<IProps> = ({ title, isBack, currentPage }) => {
   return (
     <HStack
       as="nav"
@@ -26,16 +27,32 @@ const Navbar: NextPage<IProps> = ({ title, isBack }) => {
       gap="4"
     >
       <List color={"brand.white"} display="flex" gap={4}>
-        <ListItem height={6}>
+        <ListItem
+          height={6}
+          color={currentPage === "azkar" ? "brand.secondary" : "brand.white"}
+        >
           <Icon as={GiPrayerBeads} height={6} width={6} />
         </ListItem>
-        <ListItem height={6}>
+        <ListItem
+          height={6}
+          color={currentPage === "prays" ? "brand.secondary" : "brand.white"}
+        >
           <Icon as={FaPray} height={6} width={6} />
         </ListItem>
-        <ListItem height={6}>
-          <Icon as={GiTargeted} height={6} width={6} />
+        <ListItem
+          height={6}
+          color={currentPage === "goals" ? "brand.secondary" : "brand.white"}
+        >
+          <NextLink href="/Goals" passHref>
+            <Link>
+              <Icon as={GiTargeted} height={6} width={6} />
+            </Link>
+          </NextLink>
         </ListItem>
-        <ListItem height={6}>
+        <ListItem
+          height={6}
+          color={currentPage === "settings" ? "brand.secondary" : "brand.white"}
+        >
           <SettingsIcon height={6} width={6} />
         </ListItem>
       </List>
@@ -59,13 +76,15 @@ const Navbar: NextPage<IProps> = ({ title, isBack }) => {
             color={"brand.white"}
             mr={0}
             _hover={{
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             رجوع
           </Button>
         </NextLink>
-      ): <Box as="span" w={16}/>}
+      ) : (
+        <Box as="span" w={16} />
+      )}
     </HStack>
   );
 };
