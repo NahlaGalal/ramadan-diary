@@ -8,7 +8,7 @@ test("should render Calendar page correctly", () => {
 
   // Check for heading exist
   const heading = screen.getByRole("heading", {
-    name: /ramadan daily/i,
+    name: /إمساكية رمضان/i,
   });
 
   expect(heading).toBeInTheDocument();
@@ -29,5 +29,5 @@ test("should render Calendar page correctly", () => {
   // Number of cells
   const tableCells = screen.getAllByRole("gridcell");
 
-  expect(tableCells).toHaveLength(30);
+  expect(tableCells).toHaveLength(34);
 });

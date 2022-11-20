@@ -6,7 +6,7 @@ test("should successfully render day page", () => {
 
   // Heading with the day
   const heading = screen.getByRole("heading", {
-    name: /\d(st|nd|rd|th) Ramadan/
+    name: /\d رمضان/
   })
 
   expect(heading).toBeInTheDocument();

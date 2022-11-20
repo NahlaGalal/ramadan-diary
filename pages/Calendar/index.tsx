@@ -60,6 +60,7 @@ const Calendar: NextPage = () => {
                         color={`brand.${today ? "main" : "secondary"}`}
                         fontWeight={"semibold"}
                         cursor="pointer"
+                        role={"gridcell"}
                       >
                         <Link href={`/${id}`}>
                           <LinkOverlay>{id}</LinkOverlay>
