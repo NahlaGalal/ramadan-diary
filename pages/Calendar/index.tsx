@@ -35,10 +35,12 @@ const Calendar: NextPage = () => {
               <Tr>
                 {weekDays.map((day) => (
                   <Th
-                    fontWeight="500"
+                    fontWeight="semibold"
                     fontSize={"2xl"}
                     key={day}
                     textAlign={"center"}
+                    lineHeight={"7"}
+                    p={0}
                   >
                     {day}
                   </Th>
