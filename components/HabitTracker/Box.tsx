@@ -3,7 +3,14 @@ import { NextPage } from "next";
 import React from "react";
 import { IBoxProps } from "./Types";
 
-const HabitTrackerBox: NextPage<IBoxProps> = ({ data, header }) => {
+const HabitTrackerBox: NextPage<IBoxProps> = ({
+  data,
+  header,
+  dragStartHandler,
+  dragOverHandler,
+  dropHandler,
+  type,
+}) => {
   return (
     <Box
       as="section"
@@ -14,6 +21,8 @@ const HabitTrackerBox: NextPage<IBoxProps> = ({ data, header }) => {
       pb={6}
       maxH="600px"
       overflowY={"auto"}
+      onDrop={(e: React.DragEvent<HTMLDivElement>) => dropHandler(e, type)}
+      onDragOver={(e: React.DragEvent<HTMLDivElement>) => dragOverHandler(e)}
     >
       <Box
         as="header"
@@ -45,6 +54,11 @@ const HabitTrackerBox: NextPage<IBoxProps> = ({ data, header }) => {
             borderColor={"brand.secondary"}
             p={4}
             borderRadius="xl"
+            cursor={"move"}
+            draggable
+            onDragStart={(e: React.DragEvent<HTMLDivElement>) =>
+              dragStartHandler(e, id)
+            }
           >
             <Text>{text}</Text>
             {startTime && (

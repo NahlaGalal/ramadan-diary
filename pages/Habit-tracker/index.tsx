@@ -1,13 +1,47 @@
 import { Box, Container, Heading, HStack, Link, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NextLink from "next/link";
 import HabitTrackerDays from "../../components/HabitTracker/Days";
 import Navbar from "../../components/Navbar";
-import { doing, done, toDo } from "./Data";
+import { data } from "./Data";
 import HabitTrackerBox from "../../components/HabitTracker/Box";
 
 const HabitTracker = () => {
   const [day, setDay] = useState<number>(1);
+  const [habits, setHabits] = useState<{
+    [key: number]: {
+      id: number;
+      text: string;
+      startTime?: string;
+      endTime?: string;
+      type: "todo" | "doing" | "done";
+    };
+  }>({});
+
+  const dragStartHandler = (e: React.DragEvent<HTMLDivElement>, id: number) => {
+    e.dataTransfer.setData("id", id.toString());
+  };
+
+  const dragOverHandler = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  const dropHandler = (
+    e: React.DragEvent<HTMLDivElement>,
+    type: "todo" | "doing" | "done"
+  ) => {
+    let id = +e.dataTransfer.getData("id");
+
+    let habitsCopy = { ...habits };
+    habitsCopy[id].type = type;
+    setHabits(habitsCopy);
+  };
+
+  useEffect(() => {
+    setHabits(
+      data.reduce((prev, habit) => ({ ...prev, [habit.id]: { ...habit } }), {})
+    );
+  }, []);
 
   return (
     <Container py={10} maxWidth="container.xl" dir="rtl">
@@ -36,11 +70,38 @@ const HabitTracker = () => {
 
           <HStack gap={6} mt={6} alignItems="flex-start">
             {/* Todo */}
-            <HabitTrackerBox header="لم أفعله بعد" data={toDo} />
+            <HabitTrackerBox
+              header="لم أفعله بعد"
+              data={Object.values(habits).filter(
+                (habit) => habit.type === "todo"
+              )}
+              dragStartHandler={dragStartHandler}
+              dragOverHandler={dragOverHandler}
+              dropHandler={dropHandler}
+              type="todo"
+            />
             {/* Doing */}
-            <HabitTrackerBox header="أفعله اﻵن" data={doing} />
+            <HabitTrackerBox
+              header="أفعله اﻵن"
+              data={Object.values(habits).filter(
+                (habit) => habit.type === "doing"
+              )}
+              dragStartHandler={dragStartHandler}
+              dragOverHandler={dragOverHandler}
+              dropHandler={dropHandler}
+              type="doing"
+            />
             {/* Done */}
-            <HabitTrackerBox header="فعلته" data={done} />
+            <HabitTrackerBox
+              header="فعلته"
+              data={Object.values(habits).filter(
+                (habit) => habit.type === "done"
+              )}
+              dragStartHandler={dragStartHandler}
+              dragOverHandler={dragOverHandler}
+              dropHandler={dropHandler}
+              type="done"
+            />
           </HStack>
         </Box>
       </HStack>

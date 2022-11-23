@@ -1,33 +1,38 @@
-export const toDo = [
+export const data: {
+  id: number;
+  text: string;
+  startTime?: string;
+  endTime?: string;
+  type: "todo" | "doing" | "done";
+}[] = [
   {
-    id: 1,
+    id: 10,
     text: "أزور اقاربي",
     startTime: "6 مساءً",
-    endTime: "7 مساءً"
+    endTime: "7 مساءً",
+    type: "todo",
   },
   {
     id: 2,
     text: "أزور اقاربي",
     startTime: "6 مساءً",
+    type: "todo",
   },
   {
     id: 3,
     text: "أزور اقاربي",
+    type: "todo",
   },
-]
-
-export const doing = [
   {
     id: 4,
     text: "أزور اقاربي",
     startTime: "6 مساءً",
-    endTime: "7 مساءً"
+    endTime: "7 مساءً",
+    type: "doing",
   },
-]
-
-export const done = [
   {
     id: 5,
     text: "أزور اقاربي",
-  }
-]
+    type: "done",
+  },
+];
