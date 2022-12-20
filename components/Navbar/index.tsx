@@ -31,7 +31,11 @@ const Navbar: NextPage<IProps> = ({ title, isBack, currentPage }) => {
           height={6}
           color={currentPage === "azkar" ? "brand.secondary" : "brand.white"}
         >
-          <Icon as={GiPrayerBeads} height={6} width={6} />
+          <NextLink href="/Azkar" passHref>
+            <Link>
+              <Icon as={GiPrayerBeads} height={6} width={6} />
+            </Link>
+          </NextLink>
         </ListItem>
         <ListItem
           height={6}
