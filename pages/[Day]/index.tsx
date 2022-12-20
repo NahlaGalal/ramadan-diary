@@ -17,7 +17,7 @@ import Worships from "../../components/Worships";
 
 const Day: NextPage<{ day: string }> = ({ day }) => {
   return (
-    <Container py={10} maxW="container.xl" dir="rtl">
+    <Container py={10} maxW={["sm", "md", "3xl", "4xl", "6xl", "8xl"]} dir="rtl">
       <Navbar title={`${day} رمضان`} isBack />
       
       <HStack gap={10}>
@@ -97,21 +97,23 @@ const Day: NextPage<{ day: string }> = ({ day }) => {
             تتبع عاداتي
           </Link>
         </NextLink>
-        <Link
-          px={10}
-          py={3}
-          color="brand.white"
-          bg="brand.green"
-          border="1px solid"
-          borderColor="brand.green"
-          height={"auto"}
-          borderRadius="md"
-          _hover={{
-            bg: "brand.main",
-          }}
-        >
-          القرآن
-        </Link>
+        <NextLink href="/Quran" passHref>
+          <Link
+            px={10}
+            py={3}
+            color="brand.white"
+            bg="brand.green"
+            border="1px solid"
+            borderColor="brand.green"
+            height={"auto"}
+            borderRadius="md"
+            _hover={{
+              bg: "brand.main",
+            }}
+          >
+            القرآن
+          </Link>
+        </NextLink>
       </HStack>
     </Container>
   );
