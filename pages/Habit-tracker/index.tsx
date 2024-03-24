@@ -61,11 +61,14 @@ const HabitTracker = () => {
             <Text fontWeight={"bold"} color="brand.secondary">
               50%
             </Text>
-            <NextLink href="/Habit-statistic" passHref>
-              <Link ms="auto !important" _hover={{ color: "brand.secondary" }}>
-                مشاهدة الاحصائيات
-              </Link>
-            </NextLink>
+            <Link
+              ms="auto !important"
+              _hover={{ color: "brand.secondary" }}
+              as={NextLink}
+              href="/Habit-statistic"
+            >
+              مشاهدة الاحصائيات
+            </Link>
           </HStack>
 
           <HStack gap={6} mt={6} alignItems="flex-start">

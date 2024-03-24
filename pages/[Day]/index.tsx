@@ -17,9 +17,13 @@ import Worships from "../../components/Worships";
 
 const Day: NextPage<{ day: string }> = ({ day }) => {
   return (
-    <Container py={10} maxW={["sm", "md", "3xl", "4xl", "6xl", "8xl"]} dir="rtl">
+    <Container
+      py={10}
+      maxW={["sm", "md", "3xl", "4xl", "6xl", "8xl"]}
+      dir="rtl"
+    >
       <Navbar title={`${day} رمضان`} isBack />
-      
+
       <HStack gap={10}>
         <VStack spacing={6}>
           {/* Salah card */}
@@ -80,40 +84,40 @@ const Day: NextPage<{ day: string }> = ({ day }) => {
 
       {/* Btns */}
       <HStack justifyContent={"center"} gap={10} dir="rtl" mt={6}>
-        <NextLink href={"/Habit-tracker"} passHref>
-          <Link
-            px={10}
-            py={3}
-            color="brand.white"
-            bg="brand.green"
-            border="1px solid"
-            borderColor="brand.green"
-            height={"auto"}
-            borderRadius="md"
-            _hover={{
-              bg: "brand.main",
-            }}
-          >
-            تتبع عاداتي
-          </Link>
-        </NextLink>
-        <NextLink href="/Quran" passHref>
-          <Link
-            px={10}
-            py={3}
-            color="brand.white"
-            bg="brand.green"
-            border="1px solid"
-            borderColor="brand.green"
-            height={"auto"}
-            borderRadius="md"
-            _hover={{
-              bg: "brand.main",
-            }}
-          >
-            القرآن
-          </Link>
-        </NextLink>
+        <Link
+          as={NextLink}
+          href="/Habit-tracker"
+          px={10}
+          py={3}
+          color="brand.white"
+          bg="brand.green"
+          border="1px solid"
+          borderColor="brand.green"
+          height={"auto"}
+          borderRadius="md"
+          _hover={{
+            bg: "brand.main",
+          }}
+        >
+          تتبع عاداتي
+        </Link>
+        <Link
+          as={NextLink}
+          href="/Quran"
+          px={10}
+          py={3}
+          color="brand.white"
+          bg="brand.green"
+          border="1px solid"
+          borderColor="brand.green"
+          height={"auto"}
+          borderRadius="md"
+          _hover={{
+            bg: "brand.main",
+          }}
+        >
+          القرآن
+        </Link>
       </HStack>
     </Container>
   );

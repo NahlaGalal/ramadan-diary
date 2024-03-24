@@ -16,28 +16,28 @@ const Home: NextPage = () => {
         src={background}
         alt="Ramadan background"
         objectFit="cover"
-        width={"600px"}
+        width={600}
       />
-      <Link href={"/Login"} passHref={true}>
-        <StyledLink
-          mt="auto"
-          mb={6}
-          bg="brand.green"
-          border={"1px solid"}
-          borderColor="brand.green"
-          py={3}
-          px={10}
-          fontSize={"lg"}
-          zIndex={"docked"}
-          borderRadius={"md"}
-          fontWeight="500"
-          color={"brand.white"}
-          _hover={{ bg: "transparent" }}
-          _active={{ bg: "tranparent" }}
-        >
-          دخول
-        </StyledLink>
-      </Link>
+      <StyledLink
+        as={Link}
+        href="/Login"
+        mt="auto"
+        mb={6}
+        bg="brand.green"
+        border={"1px solid"}
+        borderColor="brand.green"
+        py={3}
+        px={10}
+        fontSize={"lg"}
+        zIndex={"docked"}
+        borderRadius={"md"}
+        fontWeight="500"
+        color={"brand.white"}
+        _hover={{ bg: "transparent" }}
+        _active={{ bg: "tranparent" }}
+      >
+        دخول
+      </StyledLink>
     </Flex>
   );
 };

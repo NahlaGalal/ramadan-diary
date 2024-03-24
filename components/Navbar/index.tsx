@@ -31,31 +31,25 @@ const Navbar: NextPage<IProps> = ({ title, isBack, currentPage }) => {
           height={6}
           color={currentPage === "azkar" ? "brand.secondary" : "brand.white"}
         >
-          <NextLink href="/Azkar" passHref>
-            <Link>
-              <Icon as={GiPrayerBeads} height={6} width={6} />
-            </Link>
-          </NextLink>
+          <Link as={NextLink} href="/Azkar">
+            <Icon as={GiPrayerBeads} height={6} width={6} />
+          </Link>
         </ListItem>
         <ListItem
           height={6}
           color={currentPage === "prays" ? "brand.secondary" : "brand.white"}
         >
-          <NextLink href={"/Prays"} passHref>
-            <Link>
-              <Icon as={FaPray} height={6} width={6} />
-            </Link>
-          </NextLink>
+          <Link as={NextLink} href="/Prays">
+            <Icon as={FaPray} height={6} width={6} />
+          </Link>
         </ListItem>
         <ListItem
           height={6}
           color={currentPage === "goals" ? "brand.secondary" : "brand.white"}
         >
-          <NextLink href="/Goals" passHref>
-            <Link>
-              <Icon as={GiTargeted} height={6} width={6} />
-            </Link>
-          </NextLink>
+          <Link as={NextLink} href="/Goals">
+            <Icon as={GiTargeted} height={6} width={6} />
+          </Link>
         </ListItem>
         <ListItem
           height={6}

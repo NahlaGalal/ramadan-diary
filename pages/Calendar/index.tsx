@@ -64,9 +64,10 @@ const Calendar: NextPage = () => {
                         cursor="pointer"
                         role={"gridcell"}
                       >
-                        <Link href={`/${id}`}>
-                          <LinkOverlay>{id}</LinkOverlay>
-                        </Link>
+                        <LinkOverlay as={Link} href={`/${id}`}>
+                          {id}
+                        </LinkOverlay>
+
                         {rate ? (
                           <CircularProgress
                             value={rate}
